@@ -30,10 +30,12 @@ public class CompanyServiceImpl implements ICompanyService {
 
     @Override
     public long getEmployeeCountForCompanyAndChildren(Company company, List<Company> companies) {
-        if (company == null || companies == null) {
+        if (company == null ) {
             return 0;
+        } else if (companies == null) {
+            return company.getEmployeesCount();
         } else if (companies.isEmpty()) {
-            return 0;
+            return company.getEmployeesCount();
         } else {
             long result = 0;
             Set<Company> childCompanies = new HashSet<>();

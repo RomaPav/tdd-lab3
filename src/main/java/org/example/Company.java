@@ -8,8 +8,8 @@ package org.example;/*
 
 public class Company {
     // parent for this company nullable, when there is no parent for this company
-    private Company parent;
-    private long employeesCount;
+    private final Company parent;
+    private final long employeesCount;
 
     public Company(Company parent, long employeesCount) {
         this.parent = parent;

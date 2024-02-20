@@ -69,7 +69,7 @@ import java.util.List;
     @Test
     void whenCListIsNullThenZero() {
         long result = companyService.getEmployeeCountForCompanyAndChildren(manager,null);
-        Assertions.assertEquals(0, result);
+        Assertions.assertEquals(4, result);
     }
     @Test
     void whenCompanyIsNullAndListIsNullThenZero() {
@@ -77,8 +77,13 @@ import java.util.List;
         Assertions.assertEquals(0, result);
     }
     @Test
-    void whenListHasSizeZeroThenZero() {
+    void whenListHasSizeZeroAndCompanyNotNullThenZero() {
         long result = companyService.getEmployeeCountForCompanyAndChildren(manager,new ArrayList<>());
+        Assertions.assertEquals(4, result);
+    }
+    @Test
+    void whenListHasSizeZeroAndCompanyNullThenZero() {
+        long result = companyService.getEmployeeCountForCompanyAndChildren(null,new ArrayList<>());
         Assertions.assertEquals(0, result);
     }
     @Test
